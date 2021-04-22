@@ -9,7 +9,6 @@ enum class Player {
     AI = 'O'
 };
 
-//basic_fiel_size we coud put int this class(private + setter + getter)
 class Game_structure {
 public:
     Player get_field_value(int y, int x);
