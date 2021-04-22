@@ -24,8 +24,8 @@ void Game_loop(Game_structure& game_status){
     //int basic_field_size;
     do{
         field_size_choise(game_status); //Create field, by size of choice
-        clear_field(game_status);                  //Make sure that field is EMPTY
-        current_game_loop(game_status);            //Start game session
+        clear_field(game_status);       //Make sure that field is EMPTY
+        current_game_loop(game_status); //Start game session
         print(game_status);
 
         winner_output(game_status);
