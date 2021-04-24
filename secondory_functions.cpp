@@ -4,37 +4,6 @@
 #include <windows.h>
 #include "Game_structure.hpp"
 
-//Setters and Getters(Game_structure class) definition
-Player Game_structure::get_player(){
-    return Game_structure::current_player;
- }
-void Game_structure::set_player(Player player){
-    current_player = player;
-}
-
-
-Player Game_structure::get_field_value(int x, int y) {
-    return Map[x*basic_field_size + y];
-}
-void Game_structure::set_field_value(int x,int y){
-    Map[x*basic_field_size + y] = current_player;
-}
-
-
-void Game_structure::create_field(int size){
-    Map = new Player [basic_field_size * basic_field_size];
-}
-void Game_structure::delete_field(){
-    delete[] Map;
-}
-
-
-int Game_structure::get_field_size(){
-    return basic_field_size;
-}
-void Game_structure::set_field_size(int size){
-    basic_field_size = size;
-}
 
 //Small check smth functions
 bool isvalid(Game_structure& game_status, int x, int y){
