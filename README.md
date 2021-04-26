@@ -11,6 +11,7 @@ Gui version ain't done yet. You can play but no Start of the game, no Win Loose 
 4. Run `./build/src/test` to start the game
 
 ###### If you have SFML and make(linux):
+
   git clone https://github.com/4REeSTt/tic-tac-toe.git
   cd tic-tac-toe/
   make -C build/
