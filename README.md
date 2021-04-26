@@ -12,11 +12,10 @@ Gui version ain't done yet. You can play but no Start of the game, no Win Loose 
 
 ###### If you have SFML and make(linux):
 
-
-            git clone https://github.com/4REeSTt/tic-tac-toe.git
-            cd tic-tac-toe/
-            make -C build/
-            ./build/src/test
+    git clone https://github.com/4REeSTt/tic-tac-toe.git
+    cd tic-tac-toe/
+    make -C build/
+    ./build/src/test
   
 ###### To start on windows:
 1. Install SFML package https://www.sfml-dev.org/download/sfml/2.5.1/ and place it in C:\ folder
