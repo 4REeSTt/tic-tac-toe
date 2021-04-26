@@ -14,4 +14,4 @@ Gui version ain't done yet. You can play but no Start of the game, no Win Loose 
 1.Install SFML package https://www.sfml-dev.org/download/sfml/2.5.1/ and place it in C:\ folder
 2.You can try run it in IDE, don't forget to add libs from bin folder(SFML) to folder with .exe (you can just copy and paste all of them)
 3.If you run in terminal with MinWG make gcc, run as same as linux
-  but don't forget 2nd and add(libs) to ./build/src after compitation(make)
+4.but don't forget 2nd and add(libs) to ./build/src after compitation(make)
