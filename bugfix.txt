@@ -1,0 +1,10 @@
+make: Entering directory '/home/linus/SFML_project/build'
+make[1]: Entering directory '/home/linus/SFML_project/build'
+make[2]: Entering directory '/home/linus/SFML_project/build'
+Consolidate compiler generated dependencies of target test
+make[2]: Leaving directory '/home/linus/SFML_project/build'
+make[2]: Entering directory '/home/linus/SFML_project/build'
+[ 50%] Building CXX object src/CMakeFiles/test.dir/main.cpp.o
+make[2]: Leaving directory '/home/linus/SFML_project/build'
+make[1]: Leaving directory '/home/linus/SFML_project/build'
+make: Leaving directory '/home/linus/SFML_project/build'

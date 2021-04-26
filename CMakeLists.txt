@@ -1,4 +1,5 @@
-project(TTT)
-cmake_minimum_required(VERSION 2.8)
+project(test)
 
-add_executable(MAIN main.cpp game_structure.cpp secondory_functions.cpp)
+cmake_minimum_required(VERSION 3.14)
+include(cmake/cmakedependencies.cmake)
+add_subdirectory(src)
