@@ -24,7 +24,9 @@ Gui version ain't done yet. You can play but no Start of the game, no Win Loose 
 2. You can try run it in IDE, don't forget to add libs from bin folder(SFML) to folder with .exe (you can just copy and paste all of them)
 3. If you run in terminal with MinWG make gcc, run as same as linux
    - run `cmake -B build -G "MinGW Makefiles"`
+   - run `make -C build`
    - but don't forget 2nd and add(libs) to ./build/src after compitation(make)
+   - `./build/src/test`
 
 
 
