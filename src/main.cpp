@@ -3,20 +3,33 @@
 #include <random>
 #include "Game_structure.hpp"
 
-#define WINDOW_NOT_CLOSED\ 
-        while (window.pollEvent(event))\
-        {\
-            if (event.type == sf::Event::Closed)\
-                window.close();\
-        }
+#define WINDOW_NOT_CLOSED                   \ 
+                                            \
+    while (window.pollEvent(event))         \
+    {                                       \
+        if (event.type == sf::Event::Closed)\
+            window.close();                 \
+    }
+
+#define WIN_DRAW_CHECK(player)                  \ 
+                                                \
+    if(check_win(Fieldclass) != Player::EMPTY){ \
+        win_status = player;                    \
+        break;                                  \
+    }                                           \
+    if(check_draw(Fieldclass)){                 \
+        win_status = Player::EMPTY;             \
+        break;                                  \
+    }
 
 
 
-int main()
-{
+int main(){
     Player win_status = Player::EMPTY;
     field Fieldclass;
+    int timer = 0;
 
+    //Render all images
     sf::RenderWindow window(sf::VideoMode(300, 300), "SFML works!",sf::Style::None);
     sf::Texture Background, Start;
     sf::Texture Cross, Zerro;
@@ -42,74 +55,64 @@ int main()
         sf::Event event;
         WINDOW_NOT_CLOSED;
 
-        window.clear();
-        window.draw(start);
-        window.display();
-     
+        print_window(window, start, Fieldclass);
+
+        //For check button on
         int  button_x{(sf::Mouse::getPosition(window).x)}
             ,button_y{(sf::Mouse::getPosition(window).y)};
 
-        //if(sf::Mouse::isButtonPressed(sf::Mouse::Left) && button_x > 75.f && button_x < 225.f && button_y > 125.f && button_y > 175.f){
+//If button if pressed - Start new  game
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left) && (button_x > 75.f) && (button_x < 225.f) && (button_y > 125.f) && (button_y < 175.f)){
+            while(timer < 500){
+                print_window(window, bg, Fieldclass);
+                timer++;
+            }
+            timer = 0;
+
+//Current game loop
             while(true){
-                window.clear();
-                window.draw(bg);
-
-                draw_field(Fieldclass,window);
-
-                window.display();
-
                 WINDOW_NOT_CLOSED;
+                print_window(window, bg, Fieldclass);
+
                 if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
                     if(human(cross, Fieldclass, window)){
-                        if(check_win(Fieldclass) != Player::EMPTY){
-                            win_status = Player::HUMAN;
-                            break;
-                        }
-                        if(check_draw(Fieldclass)){
-                            win_status = Player::EMPTY;
-                            break;
-                        }
-                        window.clear();
-                        window.draw(bg);
 
-                        draw_field(Fieldclass, window);
+                        WIN_DRAW_CHECK(Player::HUMAN);
+                        print_window(window, bg, Fieldclass);
 
-                        window.display();
-
-                        Fieldclass.setPlayer(Player::AI);
-
-                        ai(Fieldclass, zerro);
-                        if(check_win(Fieldclass) != Player::EMPTY){
-                            win_status = Player::AI;
-                            break;
-                        }
-                        if(check_draw(Fieldclass)){
-                            win_status = Player::EMPTY;
-                            break;
-                        }
+                        ai(Fieldclass, zerro, cross);
+                        WIN_DRAW_CHECK(Player::AI)
                     }
                 }
             }
-            while(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-                if(win_status == Player::AI){
-                    window.clear();
-                    window.draw(aiw);
-                    window.display();
-                }else if(win_status == Player::HUMAN){
-                    window.clear();
-                    window.draw(humanW);
-                    window.display();
-                }else{
-                    window.clear();
-                    window.draw(draw);
-                    window.display();
-                }
+
+            while(timer < 1500){
+                int* a = Fieldclass.getWinCombination();
+                if(win_status != Player::EMPTY) 
+                    print_win_combination(window, ((Fieldclass.getPlayer() == Player::HUMAN)? cross : zerro), bg, Fieldclass);
+                timer++;
             }
+            timer = 0; 
+            
             Fieldclass.clear();
-        //}
+
+//Winner out put
+            do{
+                WINDOW_NOT_CLOSED;
+                if(win_status == Player::AI)
+                    print_window(window, aiw, Fieldclass);
+                else if(win_status == Player::HUMAN)
+                    print_window(window, humanW, Fieldclass);
+                else
+                    print_window(window, draw, Fieldclass);
+                
+                timer++;
+            }while( timer < 1500);
+            timer = 0;
+        }
     }
-    return 0;
     window.clear();
     window.close();
+    return 0;
 }
         //std::cout << (sf::Mouse::getPosition(window).x /100) << " " << (sf::Mouse::getPosition(window).y /100) << std::endl;
