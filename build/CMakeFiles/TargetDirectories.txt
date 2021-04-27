@@ -1,5 +1,0 @@
-/home/linus/tic-tac-toe/build/CMakeFiles/rebuild_cache.dir
-/home/linus/tic-tac-toe/build/CMakeFiles/edit_cache.dir
-/home/linus/tic-tac-toe/build/src/CMakeFiles/rebuild_cache.dir
-/home/linus/tic-tac-toe/build/src/CMakeFiles/edit_cache.dir
-/home/linus/tic-tac-toe/build/src/CMakeFiles/test.dir
