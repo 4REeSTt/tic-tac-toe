@@ -34,4 +34,4 @@ Gui version ain't done yet. You can play but no Start of the game, no Win Loose 
 
 All pictures is in res/  
 
-![field](/res/field.png) ![](/res/cross.png) ![](/res/zerro.png)
+![field](/res/field.png) ![](/res/cross.png) ![](/res/zerro.png) ![](res/start.png)
