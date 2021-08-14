@@ -5,7 +5,7 @@ terminal version is on branch `terminal vercion`(I know that version)
 Gui version ain't done yet. You can play but no Start of the game, no Win Loose Draw massages, and bugs with draw.
 
 ###### To start on linux:
-1. Download SFML using your package manager
+1. Download SFML using your package manager `sudo pacman -S sfml`
 2. In the terminal make shure you are in main folder `tic-tac-toe/`
 3. Run `cmake -B build`
 4. Run `make -C build` (make shure you have ***make***)
