@@ -1,6 +1,6 @@
 # tic-tac-toe
 
-terminal version is on branch `terminal vercion`(I know that version)
+terminal version is on branch `terminal version`(I know that version)
 
 ###### To start on linux:
 1. Download SFML using your package manager `sudo pacman -S sfml`
